@@ -1,0 +1,27 @@
+PROJEKT JAVA
+- klasy 
+	* Zwierze 
+	* Osoba
+	* Weterynarz 
+	* Pacjent
+	* Wlasciciel
+	* Wizyta
+	* Termin
+	* Przychodnia
+	* Archiwum
+- interfejsy:
+	* IWizyta
+	* 
+- metody:
+	* dodaj - pacjent, lekarz
+	* usun - pacjent, lekarz
+	* zmien - pacjent, lekarz
+	* rezerwacja wizyty:
+		- wybranie pacjenta (z listy lub po id)
+		- wybranie weterynarza
+		- wybranie terminu (z listy lub z kalendarza (jak umiemy))
+	* sortowanie lekarzy 
+	* archiwizacja wizyty (przeniesienie do archiwum)
+	* serializacja
+	* deserializacja 
+	

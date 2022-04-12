@@ -1,12 +1,12 @@
 package Przychodnia;
 
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Prychodnia implements Serializable {
+public class Przychodnia implements Serializable {
     List<Weterynarz> weterynarze;
     List<Pacjent> pacjenci;
     List<Wizyta> aktualneWizyty;
@@ -86,25 +86,71 @@ public class Prychodnia implements Serializable {
 
     public void Archiwizuj(Archiwum archiwum)
     {
-        /*
+
         LocalDate dzis = LocalDate.now();
         int ile = aktualneWizyty.size();
         for (int i = ile - 1; i >= 0; i--)
         {
-            if (LocalDate.(aktualneWizyty[i].TerminWizyty.TerminWizyty, dzis) < 0)
-            // <0 - wizyta.Data jest wcześniej niż dzisiejsza data
+            /*DateTime dzis = DateTime.Now;
+            int ile = AktualneWizyty.Count;
+            for (int i = ile - 1; i >= 0; i--)
             {
-                // archiwizowanie + klonowanie
-                archiwum.DodajWizyte(AktualneWizyty[i].Clone() as Wizyta);
-                // usuwanie z dostępnych wizyt
-                AktualneWizyty.Remove(AktualneWizyty[i]);
-            }
-        }*/
+                if (DateTime.Compare(AktualneWizyty[i].TerminWizyty.TerminWizyty, dzis) < 0)
+                // <0 - wizyta.Data jest wcześniej niż dzisiejsza data
+                {
+                    // archiwizowanie + klonowanie
+                    archiwum.DodajWizyte(AktualneWizyty[i].Clone() as Wizyta);
+                    // usuwanie z dostępnych wizyt
+                    AktualneWizyty.Remove(AktualneWizyty[i]);
+                }
+            }*/
+        }
     }
     public void archiwizujWizyte(Wizyta w, Archiwum ar)
     {
         ar.dodajWizyte(w);
         // usuwanie z dostępnych wizyt
         aktualneWizyty.remove(w);
+    }
+
+    // SERIALIZACJA
+    public void save(String filePath) throws IOException {
+        ObjectOutputStream outputStream = null;
+        try {
+            outputStream = new ObjectOutputStream(new FileOutputStream(filePath));
+            outputStream.writeObject(this);
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            try {
+                if (outputStream != null) {
+                    outputStream.flush();
+                    outputStream.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    // DESERIALIZACJA
+    public static Przychodnia load(String filePath) throws IOException {
+        Przychodnia przychodnia = null;
+        try {
+            FileInputStream fileIn = new FileInputStream(filePath);
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            try {
+                przychodnia = (Przychodnia) in.readObject();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+        } catch (FileNotFoundException ex) {
+            ex.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return przychodnia;
     }
 }

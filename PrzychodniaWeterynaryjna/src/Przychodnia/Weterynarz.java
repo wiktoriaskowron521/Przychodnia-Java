@@ -78,7 +78,7 @@ public class Weterynarz extends Osoba implements Comparable<Weterynarz> , Serial
             return false;
         }
     }
-
+/*
     public void stworzTerminarz()
     {
         // Robienie Terminarza
@@ -158,5 +158,5 @@ public class Weterynarz extends Osoba implements Comparable<Weterynarz> , Serial
             start = new DateTime(start.Year, start.Month, start.Day, 9, 00, 00);
         }
         return start;
-    }
+    }*/
 }

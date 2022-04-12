@@ -44,4 +44,6 @@ public abstract class Zwierze implements Serializable {
         this.wiek = wiek;
         this.imie = imie;
     }
+
+    public abstract int compareTo(Pacjent o);
 }

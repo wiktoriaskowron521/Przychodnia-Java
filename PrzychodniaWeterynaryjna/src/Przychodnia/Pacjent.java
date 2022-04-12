@@ -1,7 +1,6 @@
 package Przychodnia;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 public class Pacjent extends Zwierze implements Comparable<Pacjent>, Serializable {
 
@@ -48,14 +47,17 @@ public class Pacjent extends Zwierze implements Comparable<Pacjent>, Serializabl
     public String toString() {
         return "id:" + getId() + super.getImie() + " gatunek: " + super.getGatunek() + " wlasciciel: " + getWlasciciel().toString();
     }
+
+
     @Override
     public int compareTo(Pacjent other) {
-        return  getId().compareTo(other.getId());
+        return  0; //getId().compareTo(other.getId());
     }
 
     public boolean equals(Pacjent obj) {
-        return (getId().equals(obj.getId())
+        return false;
+        /*(getId().equals(obj.getId())
                 && getGatunek().Equals(obj.getGatunek())
-                && getWlasciciel().Equals(obj.getWlasciciel()));
+                && getWlasciciel().Equals(obj.getWlasciciel()));*/
     }
 }

@@ -35,7 +35,7 @@ public class Pacjent extends Zwierze implements Comparable<Pacjent>, Serializabl
     // KONSTRUKTORY
     public Pacjent(){}
 
-    public Pacjent(int id, Wlasciciel wlasciciel,String gatunek, int wiek, String imie) {
+    public Pacjent(Wlasciciel wlasciciel,String gatunek, int wiek, String imie) {
         super(gatunek, wiek, imie);
         aktualneID++;
         setWlasciciel(wlasciciel);

@@ -1,10 +1,12 @@
 package Przychodnia;
 
 public class Program{
-   public static void main(String[] args) throws IOException {
+  public static void main(String[] args) throws IOException {
         Przychodnia przychodnia = new Przychodnia();
         Archiwum archiwum = new Archiwum();
         tworzenieBazyDanych(przychodnia,archiwum);
+        // proste testowanie
+        testy( przychodnia,  archiwum);
         // Serializacja
         przychodnia.save("przychodnia.bin");
     }
@@ -33,7 +35,6 @@ public class Program{
         przychodnia.dodajWeterynarza(w4);
     }
     public static void testy(Przychodnia przychodnia, Archiwum archiwum){
-        
-
+        przychodnia.sortujWeterynarzy();
     }
 }

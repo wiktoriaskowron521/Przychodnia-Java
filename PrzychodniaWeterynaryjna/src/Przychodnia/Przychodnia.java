@@ -62,6 +62,10 @@ public class Przychodnia implements Serializable {
                 weterynarze.remove(i);
         }
     }
+    
+    public void sortujWeterynarzy(){
+        Collections.sort(weterynarze);
+    }
 
     public void dodajPacjenta(Pacjent p)
     {

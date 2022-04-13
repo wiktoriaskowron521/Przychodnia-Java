@@ -59,7 +59,7 @@ public class Weterynarz extends Osoba implements Comparable<Weterynarz> , Serial
     @Override
     public String toString() {
         return getImie() + " " + getNazwisko() +
-                "specjalizacja " + specjalizacja +
+                " specjalizacja " + specjalizacja +
                 ", cenaWizyty: " + cenaWizyty;
     }
 

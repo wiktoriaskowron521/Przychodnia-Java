@@ -36,7 +36,7 @@ public class Przychodnia implements Serializable {
     }
 
     // KONSTRUKTORY
-    public void Przychodnia()
+    public Przychodnia()
     {
         weterynarze = new ArrayList<Weterynarz>();
         pacjenci = new ArrayList<Pacjent>();
